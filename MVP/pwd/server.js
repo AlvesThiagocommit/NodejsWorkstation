@@ -15,9 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
 app.get('/', (req, res, next) => {
-  res.json("Im am here");
+  res.render('main/home');
 });
-
 
 
 app.listen(3030, (err) => {
