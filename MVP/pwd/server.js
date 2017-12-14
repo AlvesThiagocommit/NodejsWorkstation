@@ -10,6 +10,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
+app.get('/', (req, res, next) => {
+  res.json("Im am here");
+});
 
 app.listen(3030, (err) => {
   if (err) {
