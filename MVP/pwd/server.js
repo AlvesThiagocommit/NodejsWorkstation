@@ -15,6 +15,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
+//3a648573050231ae1cd40ea76324923d-us17
+//https://us15.api.mailchimp.com/3.0/lists/695f8a697d/members
 app.get('/', (req, res, next) => {
   res.render('main/home');
 });
