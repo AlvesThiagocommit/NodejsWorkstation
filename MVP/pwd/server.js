@@ -17,9 +17,15 @@ app.use(morgan('dev'));
 
 //3a648573050231ae1cd40ea76324923d-us17
 //https://us15.api.mailchimp.com/3.0/lists/695f8a697d/members
-app.get('/', (req, res, next) => {
-  res.render('main/home');
-});
+
+app.route('/')
+  .get((req, res, next) => {
+    res.render('main/home');
+  })
+  .post((req, res, next) =>{
+    //capture user's email
+    console.log(req.body.email)
+  })
 
 
 app.listen(3030, (err) => {
