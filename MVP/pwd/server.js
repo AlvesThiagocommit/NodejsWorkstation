@@ -16,16 +16,34 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
 //3a648573050231ae1cd40ea76324923d-us17
-//https://us15.api.mailchimp.com/3.0/lists/695f8a697d/members
+//
 
 app.route('/')
   .get((req, res, next) => {
     res.render('main/home');
   })
   .post((req, res, next) =>{
-    //capture user's email
-    console.log(req.body.email)
-  })
+    request({
+      url: 'https://us15.api.mailchimp.com/3.0/lists/695f8a697d/members',
+      method: 'POST',
+      headers: {
+        'Authorization': 'randomUser a648573050231ae1cd40ea76324923d-us17',
+        'Content-Type': 'application/json'
+      },
+      json: {
+        'email_address': req.body.email,
+        'status': 'subscribed'
+      }
+
+    }, function(err, response, body){
+      if (err) {
+        console.log(err);        
+      } else {
+        console.log("Successfully sent");
+        res.redirect('/');
+      }
+    });
+  });
 
 
 app.listen(3030, (err) => {
