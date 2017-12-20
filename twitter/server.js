@@ -7,7 +7,7 @@ const expressHbs = require('express-handlebars');
 
 const app = express();
 
-app.engine('.hbs', express({ defaultLayout: 'layout', extname: '.hbs' }));
+app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
@@ -20,6 +20,6 @@ app.use(mainRoutes);
 
 
 app.listen(3030, (err) => {
-  if (err)   console.log(err);
+  if (err) console.log(err);
   console.log(`Running on port ${3030}`);
 });
