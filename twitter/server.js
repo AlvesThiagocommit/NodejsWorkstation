@@ -11,6 +11,11 @@ const app = express();
 mongoose.connect(config.database, function(err) {
   if (err) console.log(err);
   console.log("connected to the database");
+})
+
+mongoose.connect(config.database, function(err) {
+  if (err) console.log(err);
+  console.log("connected to the database");
 });
 
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
