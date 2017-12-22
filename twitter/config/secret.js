@@ -1,4 +1,4 @@
 module.exports = {
-  database: '//<ENDERÇO GERADO PELO MGLAB>'
+  database: 'mongodb://root:root@ds159866.mlab.com:59866/thgtwitter'
 
 }
