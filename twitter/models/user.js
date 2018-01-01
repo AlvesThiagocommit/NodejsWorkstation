@@ -35,4 +35,8 @@ UserSchema.methods.gravatar = function(size) {
   return 'https://gravatar.com/avatar/' + md5 + '?s=' + size + '&d=retro';  
 };
 
+UserSchema.methods.comparePassword = function (password) {
+  return bcrypt.compareSync(password, this.password)
+}
+
 module.exports = mongoose.model('User', UserSchema);
